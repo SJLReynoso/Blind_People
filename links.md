@@ -6,3 +6,6 @@
 
 # adafruit flora
 [flora](https://www.adafruit.com/product/659)
+
+# baterías lipo
+[LiPo](https://listado.mercadolibre.com.mx/bater%C3%ADa-lipo#D[A:bater%C3%ADa%20lipo])
