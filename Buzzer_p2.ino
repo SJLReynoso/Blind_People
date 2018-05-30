@@ -12,10 +12,10 @@
      float distaciaMinima = 50.0;  //Distacia minima en cm para accionar led
 
 long lectura(){
-  
+
   long distancia;
   /* Hacer el disparo */
-  digitalWrite(PIN_TRIG, LOW);  
+  digitalWrite(PIN_TRIG, LOW);
   delayMicroseconds(2);
   digitalWrite(PIN_TRIG, HIGH);  // Flanco ascendente
   delayMicroseconds(10);        // Duracion del pulso
@@ -28,10 +28,10 @@ long lectura(){
   distancia = (duracion/2) / 29;
   return distancia;
 }
-  
+
 void setup() {
   // Inicializacion de la comunicacion serial
-  Serial.begin (9600);  
+  Serial.begin (9600);
   // Inicializacion de pines digitales
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECO, INPUT);
@@ -41,32 +41,30 @@ void setup() {
 
 
 void loop() {
-  
+
   suma = 0;
   for (byte i=0; i<CANTIDAD_LECTURAS; i++) {
       suma += lectura();
   }
-  
+
   distancia = suma/CANTIDAD_LECTURAS;
-  
+
        if ( distancia >distaciaMinima){
                 noTone(speakerPin);
             }
-            
-    
+
+
        if (distancia <distaciaMinima){
                tone(speakerPin, tones[277]);
                delay(50);
                noTone(speakerPin);
-            } 
-            
+            }
+
        else {
               noTone(speakerPin);
-             }          
+             }
 
 // ENVIAR EL RESULTADO AL MONITOR SERIAL
   Serial.print(distancia);
-  Serial.println(" cm");      
+  Serial.println(" cm");
 }
-
-

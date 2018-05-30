@@ -11,11 +11,14 @@ const int pinecho = 2;
 const int pintrigger = 3;
 unsigned int tiempo, distancia;
 
+int speakerpin = 7;
+int tones[ ] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440,466, 494};
+
 void setup() {
-Serial.begin(9600);
+//Serial.begin(9600);
 pinMode(pinecho, INPUT);
 pinMode(pintrigger, OUTPUT);
-pinMode(7, OUTPUT);
+pinMode(speakerpin, OUTPUT);
 vw_set_ptt_inverted(true); //
 vw_set_tx_pin(8);
 vw_setup(4000);// speed of data transfer Kbps
@@ -38,16 +41,19 @@ void loop(){
   distancia = tiempo / 58;
 
   // ENVIAR EL RESULTADO AL MONITOR SERIAL
-  Serial.print(distancia);
-  Serial.println(" cm");
+  //Serial.print(distancia);
+  //Serial.println(" cm");
   //delay(100);
 if (distancia <= 50) {
 controller="11";
 vw_send((uint8_t *)controller, strlen(controller));
 vw_wait_tx(); // Wait until the whole message is gone
-digitalWrite(7,1);
-delay(500);
-digitalWrite(7,0);
+/*
+tone(speakerpin, tones[349]);
+noTone(speakerpin);*/
+tone(7, tones[392]);
+delay(50);
+noTone(7);
 }
 /*
 else {

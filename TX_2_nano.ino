@@ -10,7 +10,7 @@ char *controller;
 const int pinecho = 2;
 const int pintrigger = 3;
 unsigned int tiempo, distancia;
-
+ int tones[ ] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440,466, 494};
 void setup() {
 Serial.begin(9600);
 pinMode(pinecho, INPUT);
@@ -45,9 +45,13 @@ if (distancia <= 50) {
 controller="21";
 vw_send((uint8_t *)controller, strlen(controller));
 vw_wait_tx(); // Wait until the whole message is gone
+/*
 digitalWrite(7,1);
 delay(500);
-digitalWrite(7,0);
+digitalWrite(7,0);*/
+tone(7, tones[277]);
+delay(50);
+noTone(7);
 }
 /*
 else {

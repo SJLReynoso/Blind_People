@@ -1,6 +1,6 @@
 #define trigPin 9
      #define echoPin 8
-     
+
      int speakerPin = 7;
      int numTones = 10;
      int tones[ ] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440,466, 494};
@@ -9,7 +9,7 @@
      void setup()
         {   Serial.begin (9600);
             pinMode(trigPin, OUTPUT);
-            pinMode(echoPin, INPUT);      
+            pinMode(echoPin, INPUT);
         }
 
      void loop()
@@ -22,25 +22,24 @@
             duracion = pulseIn(echoPin, HIGH) ;
             distancia = duracion / 2 / 29.1  ;
             Serial.println(String(distancia) + " cm.") ;
-   
+
             if ( distancia >30){
                 noTone(speakerPin);
             }
-            
-    
+
+
         if (distancia < 30 && distancia >10){
                tone(speakerPin, tones[350 - distancia]);
                delay(700);
-            } 
+            }
             else {
               noTone(speakerPin);
-              }  
+              }
             if ( distancia < 10){
                 tone(speakerPin, tones[400]);
                      delay(500);
             }
             else{
               noTone(speakerPin);
-            }        
+            }
         }
-
