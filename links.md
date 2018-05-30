@@ -9,3 +9,6 @@
 
 # baterías lipo
 [LiPo](https://listado.mercadolibre.com.mx/bater%C3%ADa-lipo#D[A:bater%C3%ADa%20lipo])
+
+# tone arduino reference
+[Tone reference](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/)
