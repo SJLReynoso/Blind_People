@@ -12,3 +12,9 @@
 
 # tone arduino reference
 [Tone reference](https://www.arduino.cc/reference/en/language/functions/advanced-io/tone/)
+
+# Instructables
+[instructables](http://www.instructables.com/)
+
+# hackester
+[hackester](https://www.hackster.io/)
