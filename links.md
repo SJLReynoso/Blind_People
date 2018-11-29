@@ -18,3 +18,6 @@
 
 # hackester
 [hackester](https://www.hackster.io/)
+
+# modulos bluetooth
+[tutorial](https://www.naylampmechatronics.com/blog/12_Tutorial-B%C3%A1sico-de-Uso-del-M%C3%B3dulo-Bluetooth-H.html)
